@@ -8,18 +8,14 @@ service Category {
 	rpc CreateCategory(Create_Category_Request) returns(Create_Category_Response){}
 	rpc UpdateCategory(Create_Category_Request) returns(Update_Category_Response){}
 	rpc DeleteCategory(Delete_Category_Request) returns(Delete_Category_Response){}
-	rpc FindCategoryByName(Find_CategoryByName_Request) returns(Category_Response){}
+	rpc FindCategoryByName(Find_CategoryByName_Request) returns(Find_All_Response){}
 	rpc FindCategoryById(FindCateGoryById_Request)	returns(Category_Response){}
-	rpc FindCategoryByLevel(Find_CategoryByLevel_Request)	returns(Category_Response){}
 	rpc FindAllCategory(Find_All_Request)	returns(Find_All_Response){}
 }
 
 message Create_Category_Request{
 	string category_name = 1;//分类名称
-	uint32 category_level = 2;//层级
-	int64 category_parent = 3;//父id
-	string category_image = 4;//图片地址
-	string category_description = 5;//描述信息
+	string category_description = 2;//描述信息
 }
 message Create_Category_Response{
 	string message = 1;
@@ -44,25 +40,15 @@ message Find_CategoryByName_Request{
 message Category_Response{
 	int64 category_id = 1;
 	string category_name = 2;
-	uint32 category_level = 3;
-	int64 category_parent = 4;
-	string category_image = 5;
-	string category_description = 6;
+	string category_description = 3;
 	//返回全部信息的category response
 	//Create_Category_Request message = 7;
 }
 message FindCateGoryById_Request{
 	int64 id = 1;
 }
-message Find_CategoryByLevel_Request{
-	uint32 level = 1;
-}
-message Find_CategoryByParent_Request{
-	int64 parent_id = 1;
-}
 message Find_All_Request{
 	//查找分页
-
 }
 message Find_All_Response{
 	repeated Category_Response category = 1;

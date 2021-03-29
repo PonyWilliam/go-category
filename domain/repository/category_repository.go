@@ -12,6 +12,7 @@ type ICategoryRepository interface{
 	UpdateCategory(category *model.Category) error
 	FindCategoryByID(int64) (*model.Category,error)
 	FindCategoryByName(string)([]model.Category,error)
+	FindCategoryByLevel(int64)([]model.Category,error)
 	FindAll()([]model.Category,error)
 }
 func NewCategoryRepository(db *gorm.DB) ICategoryRepository{
@@ -44,4 +45,7 @@ func(c *CategoryRepository) FindCategoryByName(name string)(category []model.Cat
 }
 func(c *CategoryRepository) FindAll()(category []model.Category,err error){
 	return category,c.mysqlDb.Find(&category).Error
+}
+func(c *CategoryRepository) FindCategoryByLevel(level int64)(category []model.Category,err error){
+	return category,c.mysqlDb.Where("CategoryLevel = ?",level).Find(&category).Error
 }

@@ -11,6 +11,7 @@ type ICategoryService interface {
 	UpdateCategory(category *model.Category) error
 	FindCategoryByID(int64) (*model.Category,error)
 	FindCategoryByName(string)([]model.Category,error)
+	FindCategoryByLevel(int64)([]model.Category,error)
 	FindAll()([]model.Category,error)
 }
 func NewCategoryService(categoryRepository repository.ICategoryRepository)ICategoryService{
@@ -33,6 +34,9 @@ func(c *CategoryService) FindCategoryByID(id int64)(*model.Category,error){
 }
 func(c *CategoryService) FindCategoryByName(name string)([]model.Category,error){
 	return c.CategoryRepository.FindCategoryByName(name)
+}
+func(c *CategoryService) FindCategoryByLevel(level int64)([]model.Category,error){
+	return c.CategoryRepository.FindCategoryByLevel(level)
 }
 func(c *CategoryService) FindAll()([]model.Category,error){
 	return c.CategoryRepository.FindAll()

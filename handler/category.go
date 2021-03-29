@@ -14,10 +14,7 @@ type Category struct{
 func(c *Category)CreateCategory(ctx context.Context,request *categories.Create_Category_Request,response *categories.Create_Category_Response) error{
 	Category := &model.Category{
 		CategoryName: request.CategoryName,
-		CategoryImage: request.CategoryImage,
 		CategoryDescription: request.CategoryDescription,
-		CategoryLevel: request.CategoryLevel,
-		CategoryParent: request.CategoryParent,
 	}
 	_,err := c.CategoryService.AddCategory(Category)
 	if err!=nil{
@@ -36,29 +33,43 @@ func(c *Category)DeleteCategory(ctx context.Context,request *categories.Delete_C
 }
 func(c *Category)FindCategoryById(ctx context.Context,request *categories.FindCateGoryById_Request,response *categories.Category_Response) error{
 	category,err := c.CategoryService.FindCategoryByID(request.Id)
-	rsp := &categories.Category_Response{}
-	if err != nil{
-		return err
+	if err!=nil{
+		response = &categories.Category_Response{}
+		return nil
 	}
-	_ = common.SwapTo(category,rsp)
+	_ = common.SwapTo(category,response)
 	return nil
 }
-func(c *Category)FindCategoryByName(ctx context.Context,request *categories.Find_CategoryByName_Request,response *categories.Category_Response) error {
-	return nil
-}
-func(c *Category)FindCategoryByLevel(ctx context.Context,request *categories.Find_CategoryByLevel_Request,response *categories.Category_Response) error{
+func(c *Category)FindCategoryByName(ctx context.Context,request *categories.Find_CategoryByName_Request,response *categories.Find_All_Response) error {
+	category,err := c.CategoryService.FindCategoryByName(request.Name)
+	if err!=nil{
+		response = nil
+		return nil
+	}
+	for _,v := range category {
+		temp := &categories.Category_Response{}
+		_ = common.SwapTo(v, temp)
+		response.Category = append(response.Category,temp)
+	}
 	return nil
 }
 func(c *Category)FindAllCategory(ctx context.Context,request *categories.Find_All_Request,response *categories.Find_All_Response) error{
+	category,err := c.CategoryService.FindAll()
+	if err!=nil{
+		response = nil
+		return nil
+	}
+	for _,v := range category {
+		temp := &categories.Category_Response{}
+		_ = common.SwapTo(v, temp)
+		response.Category = append(response.Category,temp)
+	}
 	return nil
 }
 func(c *Category)UpdateCategory(ctx context.Context,request *categories.Create_Category_Request,response *categories.Update_Category_Response)error{
 	Category := &model.Category{
 		CategoryName: request.CategoryName,
-		CategoryImage: request.CategoryImage,
 		CategoryDescription: request.CategoryDescription,
-		CategoryLevel: request.CategoryLevel,
-		CategoryParent: request.CategoryParent,
 	}
 	err := c.CategoryService.UpdateCategory(Category)
 	if err != nil{

@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ba2893ce-7906-4aaf-b861-bdda3d6342c8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../WorkWeb" beforeDir="false" afterPath="$PROJECT_DIR$/../WorkWeb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrow/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../borrow/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrow/domain/repository/product_log.go" beforeDir="false" afterPath="$PROJECT_DIR$/../borrow/domain/repository/product_log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrow/domain/server/product_log.go" beforeDir="false" afterPath="$PROJECT_DIR$/../borrow/domain/server/product_log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrow/handler/borrow.go" beforeDir="false" afterPath="$PROJECT_DIR$/../borrow/handler/borrow.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrow/proto/borrow.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../borrow/proto/borrow.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrow/proto/borrow.pb.micro.go" beforeDir="false" afterPath="$PROJECT_DIR$/../borrow/proto/borrow.pb.micro.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrow/proto/borrow.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../borrow/proto/borrow.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrowLogs/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../borrowLogs/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrowLogs/domain/model/logs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../borrowLogs/domain/model/logs.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrowLogs/domain/repository/logs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../borrowLogs/domain/repository/logs.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../borrowLogs/domain/server/logs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../borrowLogs/domain/server/logs.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../product/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../product/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../workApi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workApi/handler/workApi.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workApi/handler/workApi.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workApi/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../workApi/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../works/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../works/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../works/domain/repository/work_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/../works/domain/repository/work_repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../works/domain/server/work_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/../works/domain/server/work_server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../works/handler/works.go" beforeDir="false" afterPath="$PROJECT_DIR$/../works/handler/works.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../works/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../works/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../works/proto/works.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/../works/proto/works.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../works/proto/works.pb.micro.go" beforeDir="false" afterPath="$PROJECT_DIR$/../works/proto/works.pb.micro.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../works/proto/works.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../works/proto/works.proto" afterDir="false" />
-    </list>
+    <list default="true" id="ba2893ce-7906-4aaf-b861-bdda3d6342c8" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +9,7 @@
   </component>
   <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1pplsXylQ6LKkEGs3TymzsNACLf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -57,7 +32,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Build.go build main.go">
     <configuration name="go build github.com/PonyWilliam/go-category" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="category" />
       <working_directory value="$PROJECT_DIR$" />
@@ -67,8 +42,18 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="category" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="github.com/PonyWilliam/go-category" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.go build github.com/PonyWilliam/go-category" />
       </list>
     </recent_temporary>
@@ -87,6 +72,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

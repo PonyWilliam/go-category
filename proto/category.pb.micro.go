@@ -45,9 +45,8 @@ type CategoryService interface {
 	CreateCategory(ctx context.Context, in *Create_Category_Request, opts ...client.CallOption) (*Create_Category_Response, error)
 	UpdateCategory(ctx context.Context, in *Create_Category_Request, opts ...client.CallOption) (*Update_Category_Response, error)
 	DeleteCategory(ctx context.Context, in *Delete_Category_Request, opts ...client.CallOption) (*Delete_Category_Response, error)
-	FindCategoryByName(ctx context.Context, in *Find_CategoryByName_Request, opts ...client.CallOption) (*Category_Response, error)
+	FindCategoryByName(ctx context.Context, in *Find_CategoryByName_Request, opts ...client.CallOption) (*Find_All_Response, error)
 	FindCategoryById(ctx context.Context, in *FindCateGoryById_Request, opts ...client.CallOption) (*Category_Response, error)
-	FindCategoryByLevel(ctx context.Context, in *Find_CategoryByLevel_Request, opts ...client.CallOption) (*Category_Response, error)
 	FindAllCategory(ctx context.Context, in *Find_All_Request, opts ...client.CallOption) (*Find_All_Response, error)
 }
 
@@ -93,9 +92,9 @@ func (c *categoryService) DeleteCategory(ctx context.Context, in *Delete_Categor
 	return out, nil
 }
 
-func (c *categoryService) FindCategoryByName(ctx context.Context, in *Find_CategoryByName_Request, opts ...client.CallOption) (*Category_Response, error) {
+func (c *categoryService) FindCategoryByName(ctx context.Context, in *Find_CategoryByName_Request, opts ...client.CallOption) (*Find_All_Response, error) {
 	req := c.c.NewRequest(c.name, "Category.FindCategoryByName", in)
-	out := new(Category_Response)
+	out := new(Find_All_Response)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -105,16 +104,6 @@ func (c *categoryService) FindCategoryByName(ctx context.Context, in *Find_Categ
 
 func (c *categoryService) FindCategoryById(ctx context.Context, in *FindCateGoryById_Request, opts ...client.CallOption) (*Category_Response, error) {
 	req := c.c.NewRequest(c.name, "Category.FindCategoryById", in)
-	out := new(Category_Response)
-	err := c.c.Call(ctx, req, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *categoryService) FindCategoryByLevel(ctx context.Context, in *Find_CategoryByLevel_Request, opts ...client.CallOption) (*Category_Response, error) {
-	req := c.c.NewRequest(c.name, "Category.FindCategoryByLevel", in)
 	out := new(Category_Response)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -139,9 +128,8 @@ type CategoryHandler interface {
 	CreateCategory(context.Context, *Create_Category_Request, *Create_Category_Response) error
 	UpdateCategory(context.Context, *Create_Category_Request, *Update_Category_Response) error
 	DeleteCategory(context.Context, *Delete_Category_Request, *Delete_Category_Response) error
-	FindCategoryByName(context.Context, *Find_CategoryByName_Request, *Category_Response) error
+	FindCategoryByName(context.Context, *Find_CategoryByName_Request, *Find_All_Response) error
 	FindCategoryById(context.Context, *FindCateGoryById_Request, *Category_Response) error
-	FindCategoryByLevel(context.Context, *Find_CategoryByLevel_Request, *Category_Response) error
 	FindAllCategory(context.Context, *Find_All_Request, *Find_All_Response) error
 }
 
@@ -150,9 +138,8 @@ func RegisterCategoryHandler(s server.Server, hdlr CategoryHandler, opts ...serv
 		CreateCategory(ctx context.Context, in *Create_Category_Request, out *Create_Category_Response) error
 		UpdateCategory(ctx context.Context, in *Create_Category_Request, out *Update_Category_Response) error
 		DeleteCategory(ctx context.Context, in *Delete_Category_Request, out *Delete_Category_Response) error
-		FindCategoryByName(ctx context.Context, in *Find_CategoryByName_Request, out *Category_Response) error
+		FindCategoryByName(ctx context.Context, in *Find_CategoryByName_Request, out *Find_All_Response) error
 		FindCategoryById(ctx context.Context, in *FindCateGoryById_Request, out *Category_Response) error
-		FindCategoryByLevel(ctx context.Context, in *Find_CategoryByLevel_Request, out *Category_Response) error
 		FindAllCategory(ctx context.Context, in *Find_All_Request, out *Find_All_Response) error
 	}
 	type Category struct {
@@ -178,16 +165,12 @@ func (h *categoryHandler) DeleteCategory(ctx context.Context, in *Delete_Categor
 	return h.CategoryHandler.DeleteCategory(ctx, in, out)
 }
 
-func (h *categoryHandler) FindCategoryByName(ctx context.Context, in *Find_CategoryByName_Request, out *Category_Response) error {
+func (h *categoryHandler) FindCategoryByName(ctx context.Context, in *Find_CategoryByName_Request, out *Find_All_Response) error {
 	return h.CategoryHandler.FindCategoryByName(ctx, in, out)
 }
 
 func (h *categoryHandler) FindCategoryById(ctx context.Context, in *FindCateGoryById_Request, out *Category_Response) error {
 	return h.CategoryHandler.FindCategoryById(ctx, in, out)
-}
-
-func (h *categoryHandler) FindCategoryByLevel(ctx context.Context, in *Find_CategoryByLevel_Request, out *Category_Response) error {
-	return h.CategoryHandler.FindCategoryByLevel(ctx, in, out)
 }
 
 func (h *categoryHandler) FindAllCategory(ctx context.Context, in *Find_All_Request, out *Find_All_Response) error {
