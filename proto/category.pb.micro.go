@@ -43,7 +43,7 @@ func NewCategoryEndpoints() []*api.Endpoint {
 
 type CategoryService interface {
 	CreateCategory(ctx context.Context, in *Create_Category_Request, opts ...client.CallOption) (*Create_Category_Response, error)
-	UpdateCategory(ctx context.Context, in *Create_Category_Request, opts ...client.CallOption) (*Update_Category_Response, error)
+	UpdateCategory(ctx context.Context, in *Update_Category_Request, opts ...client.CallOption) (*Update_Category_Response, error)
 	DeleteCategory(ctx context.Context, in *Delete_Category_Request, opts ...client.CallOption) (*Delete_Category_Response, error)
 	FindCategoryByName(ctx context.Context, in *Find_CategoryByName_Request, opts ...client.CallOption) (*Find_All_Response, error)
 	FindCategoryById(ctx context.Context, in *FindCateGoryById_Request, opts ...client.CallOption) (*Category_Response, error)
@@ -72,7 +72,7 @@ func (c *categoryService) CreateCategory(ctx context.Context, in *Create_Categor
 	return out, nil
 }
 
-func (c *categoryService) UpdateCategory(ctx context.Context, in *Create_Category_Request, opts ...client.CallOption) (*Update_Category_Response, error) {
+func (c *categoryService) UpdateCategory(ctx context.Context, in *Update_Category_Request, opts ...client.CallOption) (*Update_Category_Response, error) {
 	req := c.c.NewRequest(c.name, "Category.UpdateCategory", in)
 	out := new(Update_Category_Response)
 	err := c.c.Call(ctx, req, out, opts...)
@@ -126,7 +126,7 @@ func (c *categoryService) FindAllCategory(ctx context.Context, in *Find_All_Requ
 
 type CategoryHandler interface {
 	CreateCategory(context.Context, *Create_Category_Request, *Create_Category_Response) error
-	UpdateCategory(context.Context, *Create_Category_Request, *Update_Category_Response) error
+	UpdateCategory(context.Context, *Update_Category_Request, *Update_Category_Response) error
 	DeleteCategory(context.Context, *Delete_Category_Request, *Delete_Category_Response) error
 	FindCategoryByName(context.Context, *Find_CategoryByName_Request, *Find_All_Response) error
 	FindCategoryById(context.Context, *FindCateGoryById_Request, *Category_Response) error
@@ -136,7 +136,7 @@ type CategoryHandler interface {
 func RegisterCategoryHandler(s server.Server, hdlr CategoryHandler, opts ...server.HandlerOption) error {
 	type category interface {
 		CreateCategory(ctx context.Context, in *Create_Category_Request, out *Create_Category_Response) error
-		UpdateCategory(ctx context.Context, in *Create_Category_Request, out *Update_Category_Response) error
+		UpdateCategory(ctx context.Context, in *Update_Category_Request, out *Update_Category_Response) error
 		DeleteCategory(ctx context.Context, in *Delete_Category_Request, out *Delete_Category_Response) error
 		FindCategoryByName(ctx context.Context, in *Find_CategoryByName_Request, out *Find_All_Response) error
 		FindCategoryById(ctx context.Context, in *FindCateGoryById_Request, out *Category_Response) error
@@ -157,7 +157,7 @@ func (h *categoryHandler) CreateCategory(ctx context.Context, in *Create_Categor
 	return h.CategoryHandler.CreateCategory(ctx, in, out)
 }
 
-func (h *categoryHandler) UpdateCategory(ctx context.Context, in *Create_Category_Request, out *Update_Category_Response) error {
+func (h *categoryHandler) UpdateCategory(ctx context.Context, in *Update_Category_Request, out *Update_Category_Response) error {
 	return h.CategoryHandler.UpdateCategory(ctx, in, out)
 }
 

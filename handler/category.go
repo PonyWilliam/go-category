@@ -67,8 +67,9 @@ func(c *Category)FindAllCategory(ctx context.Context,request *categories.Find_Al
 	}
 	return nil
 }
-func(c *Category)UpdateCategory(ctx context.Context,request *categories.Create_Category_Request,response *categories.Update_Category_Response)error{
+func(c *Category)UpdateCategory(ctx context.Context,request *categories.Update_Category_Request,response *categories.Update_Category_Response)error{
 	Category := &model.Category{
+		ID: request.CategoryId,
 		CategoryName: request.CategoryName,
 		CategoryDescription: request.CategoryDescription,
 	}

@@ -6,7 +6,7 @@ option go_package = "proto;category";
 
 service Category {
 	rpc CreateCategory(Create_Category_Request) returns(Create_Category_Response){}
-	rpc UpdateCategory(Create_Category_Request) returns(Update_Category_Response){}
+	rpc UpdateCategory(Update_Category_Request) returns(Update_Category_Response){}
 	rpc DeleteCategory(Delete_Category_Request) returns(Delete_Category_Response){}
 	rpc FindCategoryByName(Find_CategoryByName_Request) returns(Find_All_Response){}
 	rpc FindCategoryById(FindCateGoryById_Request)	returns(Category_Response){}
@@ -16,6 +16,11 @@ service Category {
 message Create_Category_Request{
 	string category_name = 1;//分类名称
 	string category_description = 2;//描述信息
+}
+message Update_Category_Request{
+	int64 category_id = 1;
+	string category_name = 2;//分类名称
+	string category_description = 3;//描述信息
 }
 message Create_Category_Response{
 	string message = 1;

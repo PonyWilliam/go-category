@@ -57,9 +57,10 @@
       <change beforePath="$PROJECT_DIR$/../borrowLogs/proto/borrowLogs.pb.micro.go" beforeDir="false" afterPath="$PROJECT_DIR$/../borrowLogs/proto/borrowLogs.pb.micro.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../borrowLogs/proto/borrowLogs.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../borrowLogs/proto/borrowLogs.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/repository/category_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/category_repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/category.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/category.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/category.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/category.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/category.pb.micro.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/category.pb.micro.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/category.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/category.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../common/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../common/config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../product/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../product/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../product/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../product/Makefile" afterDir="false" />
