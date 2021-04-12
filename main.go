@@ -29,7 +29,7 @@ func main() {
 	})
 	// Create service
 	srv := micro.NewService(
-		micro.Name("services.category"),
+		micro.Name("go.micro.services.category"),
 		micro.Version("latest"),
 		micro.Address("127.0.0.1:8082"),
 		micro.Registry(consulRegistry),

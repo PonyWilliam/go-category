@@ -5,7 +5,6 @@ import (
 	"github.com/PonyWilliam/go-category/domain/model"
 	"github.com/PonyWilliam/go-category/domain/service"
 	categories "github.com/PonyWilliam/go-category/proto"
-	"github.com/PonyWilliam/go-common"
 )
 
 type Category struct{
@@ -37,7 +36,9 @@ func(c *Category)FindCategoryById(ctx context.Context,request *categories.FindCa
 		response = &categories.Category_Response{}
 		return nil
 	}
-	_ = common.SwapTo(category,response)
+	response.CategoryName = category.CategoryName
+	response.CategoryDescription = category.CategoryDescription
+	response.CategoryId = category.ID
 	return nil
 }
 func(c *Category)FindCategoryByName(ctx context.Context,request *categories.Find_CategoryByName_Request,response *categories.Find_All_Response) error {
@@ -48,7 +49,7 @@ func(c *Category)FindCategoryByName(ctx context.Context,request *categories.Find
 	}
 	for _,v := range category {
 		temp := &categories.Category_Response{}
-		_ = common.SwapTo(v, temp)
+		_ = Swap(v, temp)
 		response.Category = append(response.Category,temp)
 	}
 	return nil
@@ -61,7 +62,7 @@ func(c *Category)FindAllCategory(ctx context.Context,request *categories.Find_Al
 	}
 	for _,v := range category {
 		temp := &categories.Category_Response{}
-		_ = common.SwapTo(v, temp)
+		_ = Swap(v, temp)
 		response.Category = append(response.Category,temp)
 	}
 	return nil
@@ -76,5 +77,11 @@ func(c *Category)UpdateCategory(ctx context.Context,request *categories.Create_C
 		return err
 	}
 	response.Message = "更新成功"
+	return nil
+}
+func Swap(req model.Category,some *categories.Category_Response) error{
+	some.CategoryId = req.ID
+	some.CategoryDescription = req.CategoryDescription
+	some.CategoryName = req.CategoryName
 	return nil
 }

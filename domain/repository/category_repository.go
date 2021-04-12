@@ -30,11 +30,11 @@ func(c *CategoryRepository) InitTable() error{
 func(c *CategoryRepository) CreateCategory(category *model.Category)(int64,error){
 	return category.ID,c.mysqlDb.Model(category).Create(&category).Error
 }
-func(c *CategoryRepository) DeleteCategoryByID(id int64)(error){
+func(c *CategoryRepository) DeleteCategoryByID(id int64) error {
 	return c.mysqlDb.Where("id = ?",id).Delete(&model.Category{}).Error
 }
 func(c *CategoryRepository) UpdateCategory(category *model.Category) error{
-	return c.mysqlDb.Model(category).Update().Error
+	return c.mysqlDb.Model(&category).Where("id = ?",category.ID).Updates(category).Error
 }
 func(c *CategoryRepository) FindCategoryByID(id int64)(*model.Category,error){
 	category := &model.Category{}
