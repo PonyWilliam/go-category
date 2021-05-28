@@ -19,4 +19,6 @@ test:
 
 .PHONY: docker
 docker:
-	docker build . -t category:latest
+	docker build -t ponywilliam/go-category .
+	docker tag ponywilliam/go-category ponywilliam/go-category
+	docker push ponywilliam/go-category
